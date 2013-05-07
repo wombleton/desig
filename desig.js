@@ -93,12 +93,14 @@
                     index = module.exports.index($this.html()),
                     sig;
 
-                sig = $('<div class="sig collapse"></div>');
-                sig.append($this.contents().slice(index).remove());
-                $this.append(sig);
-                sig.on('click', function(e) {
-                    $(e.currentTarget).toggleClass('collapse');
-                });
+                if (index > 1) {
+                    sig = $('<div class="sig collapse"></div>');
+                    sig.append($this.contents().slice(index).remove());
+                    $this.append(sig);
+                    sig.on('click', function(e) {
+                        $(e.currentTarget).toggleClass('collapse');
+                    });
+                }
             });
         };
     }
