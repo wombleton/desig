@@ -1,0 +1,32 @@
+{
+  "name": "desig",
+  "version": "0.0.1",
+  "description": "Take a best guess at where the signature starts in a block of text",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "node_modules/nodeunit/bin/nodeunit test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wombleton/desig.git"
+  },
+  "keywords": [
+    "signatures",
+    "text",
+    "remove"
+  ],
+  "author": "Rowan Crawford",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "560e63357c2c329edf0792d28506cfef6e890d28",
+  "devDependencies": {
+    "html-md": "~2.1.0",
+    "async": "~0.2.8",
+    "nodeunit": "~0.8.0",
+    "jquery": "~1.8.3",
+    "underscore": "~1.4.4"
+  }
+}
