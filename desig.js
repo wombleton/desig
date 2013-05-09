@@ -14,7 +14,9 @@
     }
 
     rejections = [
-        /^Dear/i
+        /^Dear/i,
+        /^Hi/i,
+        /^Good/i
     ];
 
     matches = [
@@ -54,7 +56,8 @@
         get: function(s) {
             var $,
                 container,
-                found = null;
+                found = null,
+                previous;
 
             if (browser) {
                 $ = jQuery;
@@ -66,12 +69,17 @@
 
             container.html(s);
             container.contents().each(function(i, node) {
-                if (!found && i > 2 && node.nodeType === 3 && module.exports.sigStart(node.nodeValue)) {
+                // hasn't found something
+                // must follow blank text
+                // must be text node
+                // must match sig rules
+                if (!found && !previous && node.nodeType === 3 && module.exports.sigStart(node.nodeValue)) {
                     found = {
                         index: i,
                         value: node.nodeValue
                     };
                 }
+                previous = node.nodeValue;
             });
 
             return found;
